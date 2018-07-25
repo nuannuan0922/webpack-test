@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "runoob1.js",
+  "dependencies": {
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.21.0"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
