@@ -1,3 +1,7 @@
 app/node_modules
 app/dist
 app/work
+*/node_modules
+*/dist
+.DS_Store
+*/.DS_Store
