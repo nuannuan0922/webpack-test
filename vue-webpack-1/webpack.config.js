@@ -1,6 +1,8 @@
 const path = require('path')
-const isDev = process.env.NODE_ENV === 'development'
 const HTMLPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'web',
@@ -38,15 +40,23 @@ const config = {
     }]
   },
   plugins: [
-    new HTMLPlugin()
+    new webpack.DefinePlugin({ // https://webpack.js.org/plugins/define-plugin/
+      'env': isDev ? '"development"' : '"production"'
+    }),
+    new HTMLPlugin(),
+    new webpack.HotModuleReplacementPlugin({
+
+    })
   ]
 }
 
 if (isDev) {
+  config.devtool = '#cheap-module-eval-source-map' //https://webpack.js.org/configuration/devtool/
   config.devServer = {
     port: 8000,
     host: 'localhost',
-    open: true
+    open: true,
+    hot: true
   }
 }
 
